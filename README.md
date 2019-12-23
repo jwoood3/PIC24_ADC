@@ -24,7 +24,7 @@ void setup(void)
 This sets up the clock divider, sets the pins to digital, and sets pin RA0 to an output.
 
 
-
+A supporting library is used in this code called ADC_asmlib.s. This is used for the delay function called one_milli(). This function is written in assembly and delays for exactly one millisecond.
 
 
 
