@@ -17,7 +17,11 @@ This function sends the character data to the lcd . It does this by sending a st
 void lcd_printStr(const char *s)  
 This function prints out a string of characters by calling printChar for each character for the length of the string, and printing out each character in the column after the previous character was printed. This function also moves the string across the lcd and wraps back around to the front when it reaches the end. This is achieved by continuously printing the string and incrementing the column position of each character every time the string is printed. Because our setCursor function accounts for x values outside of the range of 0 to 7 by wrapping back around using the mod operator, the string will wrap back around to the front of the lcd when it reaches the end.
 
+void lcd_cmd(char Package)  
+This is used for the lcd_init function, and sends the setup data to the lcd. It does this in the same way that lcd_printChar works, except when the data byte is sent, instead of being data for a character to be printed, it is data to select the desired settings for the lcd.
 
+void setup(void)  
+This sets up the clock divider, sets the pins to digital, and sets pin RA0 to an output.
 
 
 
