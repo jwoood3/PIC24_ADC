@@ -8,13 +8,13 @@ The analog input is set to the AN0 pin of the PIC24 and can be set up with a pot
 void lcd_init(void)  
 This function initializes the lcd so that it is ready to receive the character data to display strings and characters. The contrast is adjustable through the variable called contrast. All of the setup happens by calling the lcd_cmd function to send the information for the proper settings to the lcd.
 
-void lcd_setCursor(char x, char y) 
+void lcd_setCursor(char x, char y)  
 This function sets where the character will be printed on the LCD. If y%2 = 0, it will be printed on the top line, if y% is 1, it will be printed on the bottom line. If x is between 0 and 7, it will be printed in the corresponding column, where 0 is the first column and 7 is the last column. If x is not in that range, it will print in the x%8 column.
 
-void lcd_printChar(char my Char) 
+void lcd_printChar(char my Char)  
 This function sends the character data to the lcd . It does this by sending a start bit, waiting for an acknowledge, sending the slave address and waiting for and acknowledge, sending the control byte and waiting for an acknowledge, sending the data byte (the number representing the character) and waiting for an acknowledge, and finally sending the stop bit to indicate that the process is complete.
 
-void lcd_printStr(const char *s) 
+void lcd_printStr(const char *s)  
 This function prints out a string of characters by calling printChar for each character for the length of the string, and printing out each character in the column after the previous character was printed. This function also moves the string across the lcd and wraps back around to the front when it reaches the end. This is achieved by continuously printing the string and incrementing the column position of each character every time the string is printed. Because our setCursor function accounts for x values outside of the range of 0 to 7 by wrapping back around using the mod operator, the string will wrap back around to the front of the lcd when it reaches the end.
 
 
